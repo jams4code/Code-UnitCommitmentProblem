@@ -3,11 +3,12 @@ The Unit Commitment Problem is a problem that must be solved frequently by a pow
 
 
 # Solutions
-- 1. The first logical solution that I tried was an intuitive solution (I didn't know the mathematical problem) so I just wanted to try a first approach without reading anything.
-
-- 2. The second approach is based on what I understood from the "JOURNAL OF OPTIMIZATION THEORY AND APPLICATIONS: Vol. 105, No. 3, pp. 707-730, JUNE 2000 | Solving the Unit Commitment Problem by a Unit Decommitment Methhod.
-
-- 3. Dynamic programming.
+The first logical solution that I tried was an intuitive solution (I didn't know the mathematical problem) so I just wanted to try a first approach without reading anything.
+But if you are looking to find a proper solution and especially if the problem is more detailled you have to follow one of these resolution method:
+- Priority List Method
+- Branch and bounds method
+- Dynamic Programming Method
+- Lagrangian Relaxation (LR) method
 
 
 # Get Started
