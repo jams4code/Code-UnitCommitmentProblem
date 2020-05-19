@@ -23,7 +23,7 @@ namespace gem_spaas.powerplant.coding_challenge.NewFolder
             ICollection<ProductionVm> productionplans = new List<ProductionVm>();
             foreach (var powerplant in payloads.Powerplants)
             {
-                //Get the variable cost
+                //Get the variable cost & update the P values
                 powerplant.GetUnitCostAndUpdateP(payloads.Fuels);
             }
             //Rank Up the power plants according to cost metric

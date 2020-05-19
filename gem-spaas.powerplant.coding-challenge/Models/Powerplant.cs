@@ -36,8 +36,8 @@ namespace gem_spaas.powerplant_coding_challenge.Models
                     break;
                 case "windturbine":
                     fuelPrice = 0;
-                    this.Pmin = Convert.ToInt32(this.Pmin * fuel.Wind);
-                    this.Pmax = Convert.ToInt32(this.Pmax * fuel.Wind);
+                    this.Pmin = Convert.ToInt32(this.Pmin * fuel.Wind/100);
+                    this.Pmax = Convert.ToInt32(this.Pmax * fuel.Wind/100);
                     break;
                 default:
                     throw new Exception($"Bad Type of powerplant for powerplant named : {this.Name}");
