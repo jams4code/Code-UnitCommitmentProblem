@@ -27,11 +27,12 @@ if you are looking to find a proper solution and especially if the problem is mo
 - You can access the swagger interface to interact with the API
 - You can then make a POST request by following the JSON format as below
 
-(I have also publish an instance of the API in the cloud using Azure. You can access it here: https://gem-spaas-powerplant-coding-challenge.azurewebsites.net/swagger/index.html ).
+(I have also publish an instance of the API in the cloud using Azure | [You can access it here](https://gem-spaas-powerplant-coding-challenge.azurewebsites.net/swagger/index.html) ).
 
 # Web API
 
-The program is only a Web API that receives a payload as below in the endpoint /productionplan:
+- The program is only a Web API that receives a payload as below in the endpoint [/productionplan](https://gem-spaas-powerplant-coding-challenge.azurewebsites.net/swagger/index.html) :
+```json
 {
   "load": 910,
   "fuels":
@@ -86,9 +87,10 @@ The program is only a Web API that receives a payload as below in the endpoint /
     }
   ]
 }
-
+```
 # Response
 - Return the powerplant list with the production amount to realize for each as below:
+```json
 [
   {
     "powerplantName": "windpark1",
@@ -115,7 +117,7 @@ The program is only a Web API that receives a payload as below in the endpoint /
     "production": 0
   }
 ]
-
+```
 # Why?
 I tried to solve the Unit Commitment problem when I was doing a code challenge for Engie (Belgium) - https://github.com/gem-spaas/powerplant-coding-challenge
 
