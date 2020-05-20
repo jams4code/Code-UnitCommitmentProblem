@@ -29,7 +29,7 @@ namespace gem_spaas.powerplant.coding_challenge
             services.AddControllers();
             services.AddSwaggerGen(config =>
             {
-                config.SwaggerDoc(name: "v1", new OpenApiInfo { Title = "gem-spaas.powerplant.coding-challenge API", Version = "v1" });
+                config.SwaggerDoc(name: "v1", new OpenApiInfo { Title = "gem-spaas.powerplant.coding-challenge API", Version = "By Jamal Abdelkhalek" });
             });
 
         }

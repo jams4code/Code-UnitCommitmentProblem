@@ -1,5 +1,4 @@
-﻿using gem_spaas.powerplant.coding_challenge.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
