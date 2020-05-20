@@ -20,6 +20,9 @@ if you are looking to find a proper solution and especially if the problem is mo
 - Lagrangian Relaxation (LR) method
 
 
+# Technology
+I developed a WEB API in .Net Core 3.1 but I will soon do it also in Python as personnal challenge and post it on my [GitHub](https://github.com/jams4code/Code-UnitCommitmentProblem).
+
 # Get Started
 - Clone the repository and then open it
 - You can run it either through docker or directly run the Web API in VisualStudio (https://localhost:8888/swagger/index.html)
