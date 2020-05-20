@@ -9,6 +9,6 @@ namespace gem_spaas.powerplant.coding_challenge.ViewModel
     public class ProductionVm 
     {
         public string PowerplantName { get; set; }
-        public int Production { get; set; }
+        public double Production { get; set; }
     }
 }

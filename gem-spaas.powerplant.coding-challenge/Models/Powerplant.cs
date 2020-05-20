@@ -16,8 +16,8 @@ namespace gem_spaas.powerplant_coding_challenge.Models
         public string Name { get; set; }
         public string Type { get; set; }
         public double Efficiency { get; set; }
-        public int Pmin { get; set; }
-        public int Pmax { get; set; }
+        public double Pmin { get; set; }
+        public double Pmax { get; set; }
         public double UnitCost { get; set; }
         /** 
          * This function will set a unit cost for the powerplant depending on the type, the efficiency and the pmax. A
@@ -36,8 +36,8 @@ namespace gem_spaas.powerplant_coding_challenge.Models
                     break;
                 case "windturbine":
                     fuelPrice = 0;
-                    this.Pmin = Convert.ToInt32(this.Pmin * fuel.Wind/100);
-                    this.Pmax = Convert.ToInt32(this.Pmax * fuel.Wind/100);
+                    this.Pmin = this.Pmin * fuel.Wind/100;
+                    this.Pmax = this.Pmax * fuel.Wind/100;
                     break;
                 default:
                     throw new Exception($"Bad Type of powerplant for powerplant named : {this.Name}");
@@ -48,6 +48,8 @@ namespace gem_spaas.powerplant_coding_challenge.Models
             }
                 
             this.UnitCost = (fuelPrice / this.Efficiency)/this.Pmax;
+            if (Type == "gasfired")
+                this.UnitCost += (fuel.Co2 * 0.3) / this.Pmax;
         }
         
     }

@@ -30,8 +30,8 @@ namespace gem_spaas.powerplant.coding_challenge.NewFolder
             payloads.Powerplants = payloads.Powerplants.OrderBy(x => x.UnitCost).ToList();
 
             //Use the minimum of powerplants to produce the needed load
-            int currentPowerPlantProduction = 0;
-            int load = payloads.Load;
+            double currentPowerPlantProduction = 0;
+            double load = payloads.Load;
             foreach (var powerplant in payloads.Powerplants)
             {
                 currentPowerPlantProduction = 0;
@@ -44,7 +44,7 @@ namespace gem_spaas.powerplant.coding_challenge.NewFolder
                     }
                     else if (load - powerplant.Pmin >= 0)
                     {
-                        currentPowerPlantProduction = powerplant.Pmax - load;
+                        currentPowerPlantProduction = load;
                         load -= currentPowerPlantProduction;
                     }
                 }
