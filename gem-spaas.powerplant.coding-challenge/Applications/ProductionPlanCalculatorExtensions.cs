@@ -1,4 +1,5 @@
 ﻿using gem_spaas.powerplant.coding_challenge.ViewModel;
+using gem_spaas.powerplant_coding_challenge.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,24 +33,37 @@ namespace gem_spaas.powerplant.coding_challenge.NewFolder
             //Use the minimum of powerplants to produce the needed load
             double currentPowerPlantProduction = 0;
             double load = payloads.Load;
-            foreach (var powerplant in payloads.Powerplants)
+            for (int i = 0; i < payloads.Powerplants.Count; i++)
             {
+                Powerplant currentPowerplant = payloads.Powerplants[i];
+                Powerplant nextPowerplant = null;
+                if (i+1 < payloads.Powerplants.Count)
+                    nextPowerplant = payloads.Powerplants[i + 1];
                 currentPowerPlantProduction = 0;
                 if(load > 0)
                 {
-                    if (load - powerplant.Pmax >= 0)
+                    if (load - currentPowerplant.Pmax >= 0)
                     {
-                        currentPowerPlantProduction = powerplant.Pmax;
+                        //Check if the combinaison of the current powerplant and the next powerplant can produce all the current load amount.
+                        if(nextPowerplant != null && load < currentPowerplant.Pmax + nextPowerplant.Pmax && load - currentPowerplant.Pmax < nextPowerplant.Pmin)
+                        {
+                            currentPowerPlantProduction = currentPowerplant.Pmax - nextPowerplant.Pmin;
+                        }
+                        else
+                        {
+                            currentPowerPlantProduction = currentPowerplant.Pmax;
+                        }
                         load -= currentPowerPlantProduction;
+
                     }
-                    else if (load - powerplant.Pmin >= 0)
+                    else if (load - currentPowerplant.Pmin >= 0)
                     {
                         currentPowerPlantProduction = load;
                         load -= currentPowerPlantProduction;
                     }
                 }
                 
-                productionplans.Add(new ProductionVm { PowerplantName = powerplant.Name, Production = currentPowerPlantProduction });
+                productionplans.Add(new ProductionVm { PowerplantName = currentPowerplant.Name, Production = currentPowerPlantProduction });
             }
 
             return productionplans;

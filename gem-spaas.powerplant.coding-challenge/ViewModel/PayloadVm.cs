@@ -10,6 +10,6 @@ namespace gem_spaas.powerplant.coding_challenge.ViewModel
     {
         public int Load { get; set; }
         public Fuel Fuels { get; set; }
-        public ICollection<Powerplant> Powerplants { get; set; }
+        public List<Powerplant> Powerplants { get; set; }
     }
 }
