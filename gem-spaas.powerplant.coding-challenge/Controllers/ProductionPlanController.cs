@@ -21,10 +21,14 @@ namespace gem_spaas.powerplant.coding_challenge.Controllers
         }
 
         [HttpPost]
-        public IEnumerable<ProductionVm> GetProduction([FromBody] PayloadVm payloads)
+        public ActionResult<IEnumerable<ProductionVm>> GetProduction([FromBody] PayloadVm payloads)
         {
-            
-            return ProductionPlanCalculatorExtensions.Calculate(payloads);
+            var production = ProductionPlanCalculatorExtensions.Calculate(payloads);
+            if(production == null)
+            {
+                return BadRequest();
+            }
+            return Ok(production);
         }
     }
 }

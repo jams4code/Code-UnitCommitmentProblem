@@ -30,6 +30,11 @@ namespace gem_spaas.powerplant.coding_challenge.NewFolder
             //Rank Up the power plants according to cost metric
             payloads.Powerplants = payloads.Powerplants.OrderBy(x => x.UnitCost).ToList();
 
+            bool isPossible = payloads.Powerplants.Sum(x => x.Pmax) > payloads.Load;
+            if (!isPossible)
+            {
+                return null;
+            }
             //Use the minimum of powerplants to produce the needed load
             double currentPowerPlantProduction = 0;
             double load = payloads.Load;
@@ -62,7 +67,7 @@ namespace gem_spaas.powerplant.coding_challenge.NewFolder
                         load -= currentPowerPlantProduction;
                     }
                 }
-                
+                currentPowerPlantProduction = Math.Round(currentPowerPlantProduction, 1);
                 productionplans.Add(new ProductionVm { PowerplantName = currentPowerplant.Name, Production = currentPowerPlantProduction });
             }
 

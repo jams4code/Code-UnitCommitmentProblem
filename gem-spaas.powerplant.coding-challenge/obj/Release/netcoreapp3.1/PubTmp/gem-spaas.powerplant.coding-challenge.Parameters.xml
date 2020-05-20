@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="gem-spaas-powerplant-coding-challenge" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\jabdelkhalek\\source\\repos\\gem-spaas\.powerplant\.coding-challenge\\gem-spaas\.powerplant\.coding-challenge\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
-  </parameter>
-</parameters>
